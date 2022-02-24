@@ -47,5 +47,9 @@ a {
 }
 
 a:hover {
-  background-color: #000;
+  background-color: #ff4d21;
+}
+
+a:active {
+  background-color: #cc3e1b;
 }

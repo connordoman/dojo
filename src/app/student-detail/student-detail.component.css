@@ -1,0 +1,8 @@
+.save {
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-right: 1px solid #bbb;
+}
+
+.goback {
+  border-radius: 0 0.5rem 0.5rem 0;
+}

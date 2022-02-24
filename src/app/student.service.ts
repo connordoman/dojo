@@ -67,13 +67,17 @@ export class StudentService {
     if (!term.trim()) {
       return of([]);
     }
-    let fN: string, lN: string, split: string[];
+    let fN: string = '',
+      lN: string = '',
+      split: string[];
     split = term.split(' ');
     fN = split[0];
-    lN = '';
-    split.slice(1, split.length - 1).forEach((e) => {
-      lN += `${e} `;
-    });
+    if ((split = split.slice(1, split.length - 1)).length > 0) {
+      lN = '';
+      split.forEach((e) => {
+        lN += `${e} `;
+      });
+    }
     return this.http
       .get<Student[]>(`${this.studentsUrl}/?firstName=${fN}&lastName=${lN}`)
       .pipe(

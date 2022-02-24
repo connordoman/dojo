@@ -10,7 +10,7 @@
       id="first-name"
       [(ngModel)]="student.firstName"
       placeholder="first name"
-    />
+    />&nbsp;
     <label for="last-name">Last name: </label>
     <input
       id="last-name"
@@ -18,6 +18,10 @@
       placeholder="last name"
     />
   </div>
+  <button type="button" class="save button" (click)="save()">SAVE</button>
+  <button type="button" class="goback button" (click)="goBack()">
+    GO BACK
+  </button>
+  &nbsp;
+  <button type="button" class="delete button" (click)="delete()">DELETE</button>
 </div>
-<button type="button" (click)="save()">save</button>
-<button type="button" (click)="goBack()">go back</button>

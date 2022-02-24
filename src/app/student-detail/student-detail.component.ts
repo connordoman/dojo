@@ -42,4 +42,12 @@ export class StudentDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  delete(): void {
+    if (this.student) {
+      this.studentService
+        .deleteStudent(this.student.id)
+        .subscribe(() => this.goBack());
+    }
+  }
 }

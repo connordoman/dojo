@@ -31,3 +31,21 @@ button {
   display: inline-block;
   height: 4rem;
 }
+
+.button {
+  color: #555;
+  border: 0;
+  background-color: #ccc;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+}
+
+.button:active {
+  background-color: #bbb;
+}
+
+.button:hover {
+  cursor: pointer;
+}
