@@ -1,4 +1,10 @@
+#search-component {
+  margin: 2rem 0;
+  min-height: 10rem;
+}
+
 .badge {
+  font-size: 12pt;
   border-radius: 0.5rem 0 0 0.5rem;
   width: 2vw;
   height: 2vw;
@@ -8,6 +14,7 @@
 }
 
 .name {
+  font-size: 12pt;
   background: #cccccc;
   padding: 0.5rem;
   border-radius: 0 0.5rem 0.5rem 0;
@@ -31,7 +38,6 @@ ul {
   padding: 0;
 }
 
-ul li {
-  margin-top: 1em;
-  margin-bottom: 1em;
+li {
+  margin: 1.5rem 0;
 }

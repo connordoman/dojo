@@ -1,31 +1,34 @@
-<h2>Student Details</h2>
+<h2>Students</h2>
 <div>
   <label for="new-student-fn">Student first name: </label>
-  <input id="new-student-fn" #studentFn />
+  <input id="new-student-fn" #studentFn />&nbsp;
   <label for="new-student-ln">Student last name: </label>
-  <input id="new-student-ln" #studentLn />
-
+  <input id="new-student-ln" #studentLn />&nbsp;
+  <br />
   <button
     type="button"
-    class="add-button"
+    class="add-button button"
     (click)="
       add(studentFn.value, studentLn.value);
       studentFn.value = '';
       studentLn.value = ''
     "
   >
-    Add student
+    ADD STUDENT
   </button>
 </div>
 <ul class="students">
   <li *ngFor="let student of students">
     <a routerLink="/detail/{{ student.id }}">
-      <span class="badge">{{ student.id }}</span
-      ><span class="name">{{ student.firstName }} {{ student.lastName }}</span>
+      <span class="badge button">{{ student.id }}</span
+      ><span class="name button"
+        >{{ student.firstName }} {{ student.lastName }}</span
+      >
     </a>
+    &nbsp;
     <button
       type="button"
-      class="delete"
+      class="delete button"
       title="delete student"
       (click)="delete(student)"
     >

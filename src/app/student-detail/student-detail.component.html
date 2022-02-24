@@ -1,27 +1,33 @@
 <div *ngIf="student">
   <h2>
-    {{ student.lastName | uppercase }}, {{ student.firstName | uppercase }}'s
-    Details
+    Details for {{ student.lastName | uppercase }},
+    {{ student.firstName | uppercase }}
   </h2>
   <div>id: {{ student.id }}</div>
   <div>
     <label for="first-name">First name: </label>
     <input
+      type="text"
       id="first-name"
       [(ngModel)]="student.firstName"
       placeholder="first name"
     />&nbsp;
     <label for="last-name">Last name: </label>
     <input
+      type="text"
       id="last-name"
       [(ngModel)]="student.lastName"
       placeholder="last name"
     />
   </div>
-  <button type="button" class="save button" (click)="save()">SAVE</button>
-  <button type="button" class="goback button" (click)="goBack()">
-    GO BACK
-  </button>
-  &nbsp;
-  <button type="button" class="delete button" (click)="delete()">DELETE</button>
+  <div class="button-panel">
+    <button type="button" class="save button" (click)="save()">SAVE</button>
+    <button type="button" class="goback button" (click)="goBack()">
+      GO BACK
+    </button>
+    &nbsp;
+    <button type="button" class="delete button" (click)="delete()">
+      DELETE
+    </button>
+  </div>
 </div>

@@ -1,23 +1,19 @@
-.badge {
-  border-radius: 0.5rem 0 0 0.5rem;
-  width: 2vw;
-  height: 2vw;
-  color: #fff;
-  background-color: #eb471f;
-  padding: 0.5rem;
-}
-
 .name {
+  font-size: 12pt;
+  border-radius: 0 0.5rem 0.5rem 0;
   background: #cccccc;
   padding: 0.5rem;
 }
 
 .delete {
-  font-family: sans-serif;
   font-size: 12pt;
-  padding: 0.55rem;
-  border-radius: 0 0.5rem 0.5rem 0;
+  font-family: sans-serif;
   border: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #dd0000;
+  color: #fff;
+  text-align: center;
 }
 
 a {
