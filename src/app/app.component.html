@@ -1,4 +1,5 @@
 <div class="navbar">
+  <img class="logo" src="assets/img/fvkc-square-new.png" alt="image" />
   <h1>{{ title }}</h1>
   <nav class="">
     <a routerLink="/dashboard">Dashboard</a>
@@ -6,5 +7,7 @@
     <a routerLink="/students">Students</a>
   </nav>
 </div>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div id="content">
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>

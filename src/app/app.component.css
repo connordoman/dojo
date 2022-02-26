@@ -1,0 +1,36 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #eb471f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar a,
+.navbar h1 {
+  color: white;
+  flex: 1;
+}
+
+.navbar h1 {
+  font-size: 20pt;
+  text-transform: uppercase;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.logo {
+  max-height: 175%;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: nowrap;
+  }
+  .navbar h1 {
+    display: none;
+  }
+}
