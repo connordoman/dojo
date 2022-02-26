@@ -11,6 +11,7 @@ export class StudentsComponent implements OnInit {
   selectedStudent?: Student;
 
   students: Student[] = [];
+  ages: number[] = [];
 
   constructor(private studentService: StudentService) {}
 
@@ -19,9 +20,23 @@ export class StudentsComponent implements OnInit {
   }
 
   getStudents(): void {
-    this.studentService
-      .getStudents()
-      .subscribe((students) => (this.students = students));
+    this.studentService.getStudents().subscribe((students) => {
+      this.students = students;
+      this.students.forEach((s) => {
+        this.ages.push(this.studentService.getAge(s));
+      });
+    });
+  }
+
+  getAge(student: Student): number {
+    let today = new Date();
+    let birthday = new Date(student.birthdate);
+    let age = today.getFullYear() - birthday.getFullYear();
+    let m = today.getMonth() - birthday.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+      age--;
+    }
+    return age;
   }
 
   add(firstName: string, lastName: string): void {

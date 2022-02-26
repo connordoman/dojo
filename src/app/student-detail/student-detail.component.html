@@ -3,10 +3,11 @@
     Details for {{ student.lastName | uppercase }},
     {{ student.firstName | uppercase }}
   </h2>
-  <div>id: {{ student.id }}</div>
+  <div>ID: {{ student.id }}</div>
   <div>
     <label for="first-name">First name: </label>
     <input
+      class="input"
       type="text"
       id="first-name"
       [(ngModel)]="student.firstName"
@@ -14,11 +15,32 @@
     />&nbsp;
     <label for="last-name">Last name: </label>
     <input
+      class="input"
       type="text"
       id="last-name"
       [(ngModel)]="student.lastName"
       placeholder="last name"
     />
+    <br />
+    <label for="belt-rank">Belt rank: </label>
+    <select class="input" name="belt-rank" id="belt-rank">
+      <option
+        *ngFor="let belt of ranks"
+        [value]="belt"
+        [attr.selected]="student.rank === belt ? true : null"
+      >
+        {{ belt | titlecase }}
+      </option></select
+    >&nbsp;
+    <br />
+    <label for="birth-date">Birthdate: </label>
+    <input
+      class="input"
+      type="date"
+      for="birth-date"
+      [(ngModel)]="student.birthdate"
+      placeholder="student.birthdate"
+    />&nbsp;<span class="timestamp">{{ student.birthdate }}</span>
   </div>
   <div class="button-panel">
     <button type="button" class="save button" (click)="save()">SAVE</button>

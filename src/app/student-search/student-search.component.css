@@ -3,16 +3,6 @@
   min-height: 10rem;
 }
 
-.badge {
-  font-size: 12pt;
-  border-radius: 0.5rem 0 0 0.5rem;
-  width: 2vw;
-  height: 2vw;
-  color: #fff;
-  background-color: #eb471f;
-  padding: 0.5rem;
-}
-
 .name {
   font-size: 12pt;
   background: #cccccc;

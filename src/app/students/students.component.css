@@ -1,3 +1,21 @@
+header,
+.row {
+  display: flex;
+  padding: 0.25em;
+}
+
+.col {
+  flex: 1;
+}
+
+header {
+  font-weight: bold;
+}
+
+#students-table {
+  margin: 1rem 0;
+}
+
 .name {
   font-size: 12pt;
   border-radius: 0 0.5rem 0.5rem 0;
@@ -14,11 +32,6 @@
   background-color: #dd0000;
   color: #fff;
   text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
 
 ul {

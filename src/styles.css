@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+body,
+html {
+  transition: all ease 0.2s;
+}
+
+a {
+  color: #eb471f;
+}
+
+a:hover {
+  color: #ff4e21;
+}
+
+a:focus {
+  color: #d6411c;
+}
+
 h1 {
   color: #eb471f;
   font-family: Arial, Helvetica, sans-serif;
@@ -16,29 +33,31 @@ body {
   margin: 2em;
 }
 
-body,
-input[type="text"],
-button,
-textarea {
-  color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12pt;
-}
-
-input[type="text"],
-textarea {
+.input {
   padding: 0.5em;
   border: 1px solid #ccc;
   border-radius: 0.5em;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  background-color: white;
 }
 
-input[type="text"]:hover {
+.input:hover {
   border: 1px solid #ddd;
 }
 
-input[type="text"]:focus {
+.input:focus {
   outline: 0;
   border: 1px solid #bbb;
+}
+
+select {
+  cursor: pointer;
+}
+
+input[type="date"] {
+  cursor: text;
 }
 
 * {

@@ -1,9 +1,9 @@
 <h2>Students</h2>
 <div>
-  <label for="new-student-fn">Student first name: </label>
-  <input id="new-student-fn" #studentFn />&nbsp;
-  <label for="new-student-ln">Student last name: </label>
-  <input id="new-student-ln" #studentLn />&nbsp;
+  <label for="new-student-fn">STUDENT FIRST NAME: </label>
+  <input class="input" id="new-student-fn" #studentFn />&nbsp;
+  <label for="new-student-ln">STUDENT LAST NAME: </label>
+  <input class="input" id="new-student-ln" #studentLn />&nbsp;
   <br />
   <button
     type="button"
@@ -17,22 +17,37 @@
     ADD STUDENT
   </button>
 </div>
-<ul class="students">
-  <li *ngFor="let student of students">
-    <a routerLink="/detail/{{ student.id }}">
-      <span class="badge button">{{ student.id }}</span
-      ><span class="name button"
-        >{{ student.firstName }} {{ student.lastName }}</span
+<section *ngIf="students" id="students-table">
+  <header>
+    <div class="col">ID</div>
+    <div class="col">Name</div>
+    <div class="col">Rank</div>
+    <div class="col">Age</div>
+    <div class="col">Delete</div>
+  </header>
+  <div
+    *ngFor="let student of students; let i = index"
+    class="row"
+    [attr.style]="i % 2 === 0 ? 'background-color: #eee;' : ''"
+  >
+    <div class="col">{{ student.id }}.</div>
+    <div class="col">
+      <a routerLink="/detail/{{ student.id }}"
+        >{{ student.firstName | titlecase }}
+        {{ student.lastName | titlecase }}</a
       >
-    </a>
-    &nbsp;
-    <button
-      type="button"
-      class="delete button"
-      title="delete student"
-      (click)="delete(student)"
-    >
-      x
-    </button>
-  </li>
-</ul>
+    </div>
+    <div class="col">{{ student.rank | titlecase }}</div>
+    <div class="col">{{ getAge(student) }}</div>
+    <div class="col">
+      <button
+        type="button"
+        class="delete button"
+        title="delete student"
+        (click)="delete(student)"
+      >
+        x
+      </button>
+    </div>
+  </div>
+</section>

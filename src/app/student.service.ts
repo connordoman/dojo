@@ -23,7 +23,7 @@ export class StudentService {
 
   getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(this.studentsUrl).pipe(
-      tap((_) => this.log('fetched heroes')),
+      tap((_) => this.log('fetched students')),
       catchError(this.handleError<Student[]>('getStudents', []))
     );
   }
@@ -58,8 +58,8 @@ export class StudentService {
     const url = `${this.studentsUrl}/${id}`;
 
     return this.http.delete<Student>(url, this.httpOptions).pipe(
-      tap((_) => this.log(`deleted hero id=${id}`)),
-      catchError(this.handleError<Student>('deleteHero'))
+      tap((_) => this.log(`deleted student id=${id}`)),
+      catchError(this.handleError<Student>('deleteStudent'))
     );
   }
 
@@ -67,6 +67,7 @@ export class StudentService {
     if (!term.trim()) {
       return of([]);
     }
+    // account for not entering last names
     let fN: string = '',
       lN: string = '',
       split: string[];
@@ -88,6 +89,17 @@ export class StudentService {
         ),
         catchError(this.handleError<Student[]>('searchStudents', []))
       );
+  }
+
+  getAge(student: Student): number {
+    let today = new Date();
+    let birthday = new Date(student.birthdate);
+    let age = today.getFullYear() - birthday.getFullYear();
+    let m = today.getMonth() - birthday.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+      age--;
+    }
+    return age;
   }
 
   private log(message: string) {
