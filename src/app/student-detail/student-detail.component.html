@@ -23,7 +23,12 @@
     />
     <br />
     <label for="belt-rank">Belt rank: </label>
-    <select class="input" name="belt-rank" id="belt-rank">
+    <select
+      [(ngModel)]="student.rank"
+      class="input"
+      name="belt-rank"
+      id="belt-rank"
+    >
       <option
         *ngFor="let belt of ranks"
         [value]="belt"

@@ -6,7 +6,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 0.4rem;
+  padding-left: 0.5rem;
 }
 
 .navbar a,
@@ -23,7 +24,7 @@
 }
 
 .logo {
-  max-height: 175%;
+  max-height: 150%;
 }
 
 @media (max-width: 600px) {
