@@ -112,8 +112,16 @@ html {
   padding: 0.5rem;
 }
 
+.mobile {
+  display: none;
+}
+
 @media (max-width: 600px) {
   #content {
     margin: 1em;
+  }
+
+  .mobile {
+    display: inherit;
   }
 }
