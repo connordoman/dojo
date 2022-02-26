@@ -12,3 +12,19 @@
   font-style: italic;
   color: #ccc;
 }
+
+.details * {
+  flex: 1;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+}
+
+.col .input {
+  width: 100%;
+}

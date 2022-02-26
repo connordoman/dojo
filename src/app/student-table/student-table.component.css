@@ -1,0 +1,61 @@
+header,
+.row {
+  display: flex;
+  padding: 0.25em;
+}
+
+.row {
+  cursor: pointer;
+}
+
+.col {
+  flex: 1;
+}
+
+header {
+  font-weight: bold;
+}
+
+#students-table {
+  margin: 1rem 0;
+}
+
+.name {
+  font-size: 12pt;
+  color: #eb471f;
+}
+
+.delete {
+  font-size: 12pt;
+  font-family: sans-serif;
+  border: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #dd0000;
+  color: #fff;
+  text-align: center;
+}
+
+.row a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+}
+
+.row:hover {
+  background-color: #ccc !important;
+}
+.row:focus {
+  background-color: #bbb !important;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

@@ -1,54 +1,28 @@
 <h2>Students</h2>
-<section *ngIf="students" id="students-table">
-  <header>
-    <div class="col">ID</div>
-    <div class="col">Name</div>
-    <div class="col">Rank</div>
-    <div class="col">Age</div>
-  </header>
-  <div
-    *ngFor="let student of students; let i = index"
-    class="row"
-    [attr.style]="i % 2 === 0 ? 'background-color: #eee;' : ''"
-    routerLink="/detail/{{ student.id }}"
-  >
-    <a routerLink="/detail/{{ student.id }}">
-      <div class="col">{{ student.id }}.</div>
-      <div class="col">
-        {{ student.firstName | titlecase }}
-        {{ student.lastName | titlecase }}
-      </div>
-      <div class="col">{{ student.rank | titlecase }}</div>
-      <div class="col">{{ getAge(student) }}</div>
-    </a>
+<app-student-table delible="true"></app-student-table>
+<h2>Add New Student</h2>
+<div class="row">
+  <div class="col">
+    <label for="new-student-fn">STUDENT FIRST NAME: </label>
+    <input class="input" id="new-student-fn" #studentFn />&nbsp;
+  </div>
+  <div class="col">
+    <label for="new-student-ln">STUDENT LAST NAME: </label>
+    <input class="input" id="new-student-ln" #studentLn />&nbsp;
+  </div>
+</div>
+<div class="row">
+  <div class="col">
     <button
       type="button"
-      class="delete button"
-      title="delete student"
-      (click)="delete(student)"
+      class="add-button button"
+      (click)="
+        add(studentFn.value, studentLn.value);
+        studentFn.value = '';
+        studentLn.value = ''
+      "
     >
-      x
+      ADD STUDENT
     </button>
   </div>
-</section>
-<div>
-  <label for="new-student-fn">STUDENT FIRST NAME: </label>
-  <br class="mobile" />
-  <input class="input" id="new-student-fn" #studentFn />&nbsp;
-  <br />
-  <label for="new-student-ln">STUDENT LAST NAME: </label>
-  <br class="mobile" />
-  <input class="input" id="new-student-ln" #studentLn />&nbsp;
-  <br />
-  <button
-    type="button"
-    class="add-button button"
-    (click)="
-      add(studentFn.value, studentLn.value);
-      studentFn.value = '';
-      studentLn.value = ''
-    "
-  >
-    ADD STUDENT
-  </button>
 </div>

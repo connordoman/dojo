@@ -13,6 +13,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentSearchComponent } from './student-search/student-search.component';
+import { StudentTableComponent } from './student-table/student-table.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { StudentSearchComponent } from './student-search/student-search.componen
     MessagesComponent,
     DashboardComponent,
     StudentSearchComponent,
+    StudentTableComponent,
   ],
   imports: [
     BrowserModule,

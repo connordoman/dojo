@@ -47,10 +47,9 @@ export class StudentService {
     return this.http
       .post<Student>(this.studentsUrl, student, this.httpOptions)
       .pipe(
-        tap((newStudent: Student) =>
-          this.log(`added student with id=${newStudent.id}`)
-        ),
-        catchError(this.handleError<Student>('addStudent'))
+        tap((newStudent: Student) => {
+          this.log(`added student with id=${newStudent.id}`);
+        }, catchError(this.handleError<Student>('addStudent')))
       );
   }
 

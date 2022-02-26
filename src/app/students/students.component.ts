@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 
@@ -11,9 +12,8 @@ export class StudentsComponent implements OnInit {
   selectedStudent?: Student;
 
   students: Student[] = [];
-  ages: number[] = [];
 
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService, private router: Router) {}
 
   ngOnInit(): void {
     this.getStudents();
@@ -22,21 +22,7 @@ export class StudentsComponent implements OnInit {
   getStudents(): void {
     this.studentService.getStudents().subscribe((students) => {
       this.students = students;
-      this.students.forEach((s) => {
-        this.ages.push(this.studentService.getAge(s));
-      });
     });
-  }
-
-  getAge(student: Student): number {
-    let today = new Date();
-    let birthday = new Date(student.birthdate);
-    let age = today.getFullYear() - birthday.getFullYear();
-    let m = today.getMonth() - birthday.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
-      age--;
-    }
-    return age;
   }
 
   add(firstName: string, lastName: string): void {
@@ -50,11 +36,14 @@ export class StudentsComponent implements OnInit {
       .addStudent({ firstName, lastName } as Student)
       .subscribe((student) => {
         this.students.push(student);
+        this.reload();
       });
   }
 
-  delete(student: Student): void {
-    this.students = this.students.filter((s) => s !== student);
-    this.studentService.deleteStudent(student.id).subscribe();
+  reload(): void {
+    let uri = this.router.url;
+    this.router
+      .navigateByUrl('/', { skipLocationChange: true })
+      .then(() => this.router.navigate([uri]));
   }
 }

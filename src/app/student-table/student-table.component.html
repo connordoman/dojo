@@ -1,0 +1,33 @@
+<section *ngIf="students" id="students-table">
+  <header>
+    <div class="col">ID</div>
+    <div class="col">Name</div>
+    <div class="col">Rank</div>
+    <div class="col">Age</div>
+  </header>
+  <div
+    *ngFor="let student of students; let i = index"
+    class="row"
+    [attr.style]="i % 2 === 0 ? 'background-color: #eee;' : ''"
+    routerLink="/detail/{{ student.id }}"
+  >
+    <a routerLink="/detail/{{ student.id }}">
+      <div class="col">{{ student.id }}.</div>
+      <div class="col">
+        {{ student.firstName | titlecase }}
+        {{ student.lastName | titlecase }}
+      </div>
+      <div class="col">{{ student.rank | titlecase }}</div>
+      <div class="col">{{ getAge(student) }}</div>
+    </a>
+    <button
+      *ngIf="delible"
+      type="button"
+      class="delete button"
+      title="delete student"
+      (click)="delete(student)"
+    >
+      x
+    </button>
+  </div>
+</section>
