@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Student } from '../student';
+import { Rank, Student } from '../student';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -32,8 +32,11 @@ export class StudentsComponent implements OnInit {
       return;
     }
 
+    let rank: Rank = 'white belt';
+    let birthdate: string = new Date().toLocaleDateString();
+
     this.studentService
-      .addStudent({ firstName, lastName } as Student)
+      .addStudent({ firstName, lastName, rank, birthdate } as Student)
       .subscribe((student) => {
         this.students.push(student);
         this.reload();

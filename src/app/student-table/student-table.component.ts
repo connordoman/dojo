@@ -1,6 +1,6 @@
 import { Component, OnInit, Attribute } from '@angular/core';
 
-import { Student } from '../student';
+import { Student, Rank } from '../student';
 import { StudentService } from '../student.service';
 
 @Component({
