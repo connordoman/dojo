@@ -1,13 +1,16 @@
 <h2>Students</h2>
-<app-student-table delible="true"></app-student-table>
+<app-student-table delible="true" [students]="students"></app-student-table>
 <h2>Add New Student</h2>
 <div class="row">
   <div class="col">
-    <label for="new-student-fn">STUDENT FIRST NAME: </label>
+    <label for="new-student-fn">First name: </label>
     <input class="input" id="new-student-fn" #studentFn />&nbsp;
   </div>
+  <div class="mobile">
+    <br />
+  </div>
   <div class="col">
-    <label for="new-student-ln">STUDENT LAST NAME: </label>
+    <label for="new-student-ln">Last name: </label>
     <input class="input" id="new-student-ln" #studentLn />&nbsp;
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Attribute } from '@angular/core';
+import { Component, OnInit, Attribute, Input } from '@angular/core';
 
 import { Student, Rank } from '../student';
 import { StudentService } from '../student.service';
@@ -11,7 +11,7 @@ import { StudentService } from '../student.service';
 export class StudentTableComponent implements OnInit {
   selectedStudent?: Student;
 
-  students: Student[] = [];
+  @Input() students: Student[] = [];
 
   constructor(
     @Attribute('delible') public delible: boolean,
@@ -19,7 +19,7 @@ export class StudentTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getStudents();
+    //this.getStudents();
   }
 
   getStudents(): void {
